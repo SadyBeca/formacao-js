@@ -27,3 +27,22 @@ else if (combustivelDoCarro === 'gasolina'){
 else{
     console.log('Esse carro não aceita ' + combustivelDoCarro);
 }
+
+const precoDoEtanol2 = 5.1;
+const precoDaGasolina2 = 6.4;
+let gastoMedioKmPorLitro3 = 15;
+let distanciaDaViagemEmKm3 = 500;
+let combustivelDoCarro2 = 'x';
+let custoViagem2;
+
+let gastoTotalDeCombustivel2 = distanciaDaViagemEmKm3 / gastoMedioKmPorLitro3;
+
+if( precoDoEtanol2 / precoDaGasolina2 > 0.7) {
+    custoViagem2 = gastoTotalDeCombustivel2 * precoDaGasolina2;
+    console.log(custoViagem2.toFixed(2));
+}
+
+else {
+    custoViagem2 = gastoTotalDeCombustivel2 * precoDoEtanol2;
+    console.log(custoViagem2.toFixed(2));
+}
