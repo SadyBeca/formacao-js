@@ -1,22 +1,33 @@
-const rebeca = {
-    nome: 'Rebeca Ribeiro',
-    idade: 25,
+class Pessoa {
+    nome;
+    idade;
 
-    descrever: function(){
-        console.log(`Meu nome é ${this.nome}`);
+    constructor(nome, idade){
+        this.nome = nome;
+        this.idade = idade;
+        this.anoDeNascimento = 2023 - idade;
+    }
+
+
+    descrever(){
+        console.log(`Meu nome é ${this.nome} e a minha idade é ${this.idade} anos.`);
     }
 
 }
 
-rebeca.dizAIdade = function (){
-    console.log(`Minha idade é ${this.idade}`);
-}
+const rebeca = new Pessoa('Rebeca', 26);
+const matheus = new Pessoa('Matheus', 27);
 
-rebeca.descrever() + rebeca.dizAIdade();
+console.log(rebeca, matheus);
 
-rebeca['corFavorita'] = 'laranja';
-rebeca['idade'] = 26
+// const rebeca = new Pessoa();
+// rebeca.nome = 'Rebeca Ribeiro';
+// rebeca.idade = 25;
 
-console.log(rebeca['corFavorita'], rebeca['idade']);
+// const matheus = new Pessoa();
+// matheus.nome = 'Matheus';
+// matheus.idade = 26;
+
+// console.log(rebeca, matheus);
 
 
