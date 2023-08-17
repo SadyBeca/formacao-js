@@ -4,13 +4,10 @@
 // 2- Gasto médio de combustível do carro por Km;
 // 3- Distância em Km da viagem;
   
+function calculaGastoDaViagem(distanciaDaViagemEmKm, gastoMedioKmPorLitro, precoDoComustivelReaisPorLitro){
+    let totalDeLitros = distanciaDaViagemEmKm / gastoMedioKmPorLitro;
+    let gastoDaViagem = precoDoComustivelReaisPorLitro * totalDeLitros; 
+    console.log(gastoDaViagem.toFixed(2));
+}
 
-
-let precoDoComustivelReaisPorLitro = 5.98;
-let gastoMedioKmPorLitro = 10;
-let distanciaDaViagemEmKm = 700;
-
-let totalDeLitros = distanciaDaViagemEmKm / gastoMedioKmPorLitro;
-
-let gastoDaViagem = precoDoComustivelReaisPorLitro * totalDeLitros; 
-console.log(gastoDaViagem.toFixed(2));
+calculaGastoDaViagem(700, 10, 5.98);

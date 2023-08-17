@@ -6,27 +6,28 @@
 // - Crédito em até 2x, preço da etiqueta sem juris;
 // - Acima de 2x, preço da etiqueta+10% de juros;
 
-let precoEtiqueta = 100;
-let modoDePagamento = 'debito';
-let parcelas = 4;
-let precofinal;
+// Conhecendo a máscara: debito === 1; dinheiro === 2; PIX === 3; credito === 4;
 
-if(modoDePagamento === 'debito' && parcelas === 0){
-    precofinal = precoEtiqueta * 0.9;
-    console.log('Total a pagar de: ' + precofinal + ' reais.');
+function verificaValorPago(precoEtiqueta, modoDePagamento, parcelas){
+    if(modoDePagamento === 1 && parcelas === 0){
+        precofinal = precoEtiqueta * 0.9;
+        console.log('Total a pagar de: ' + precofinal + ' reais.');
+    } 
+    else if(modoDePagamento === 2 || modoDePagamento === 3 && parcelas === 0){
+        precofinal = precoEtiqueta * 0.85;
+        console.log('Total a pagar de: ' + precofinal + ' reais.');
+    }
+    else if(modoDePagamento === 4 && parcelas <= 2){
+        precofinal = precoEtiqueta;
+        console.log('Total a pagar de: ' + precofinal + ' reais.');
+    }
+    else if(modoDePagamento === 4 && parcelas > 2){
+        precofinal = precoEtiqueta * 1.1;
+        console.log('Total a pagar de: ' + precofinal.toFixed(1) + ' reais.');
+    }
+    else{
+        console.log('Método de pagamento inválido, tende novamente.');
+    }
 } 
-else if(modoDePagamento === 'dinheiro' || modoDePagamento === 'PIX' && parcelas === 0){
-    precofinal = precoEtiqueta * 0.85;
-    console.log('Total a pagar de: ' + precofinal + ' reais.');
-}
-else if(modoDePagamento === 'credito' && parcelas <= 2){
-    precofinal = precoEtiqueta;
-    console.log('Total a pagar de: ' + precofinal + ' reais.');
-}
-else if(modoDePagamento === 'credito' && parcelas > 2){
-    precofinal = precoEtiqueta * 1.1;
-    console.log('Total a pagar de: ' + precofinal.toFixed(1) + ' reais.');
-}
-else{
-    console.log('Método de pagamento inválido, tende novamente.');
-}
+
+verificaValorPago(100, 1, 0);
