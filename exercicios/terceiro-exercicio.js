@@ -8,21 +8,29 @@
 
 // Conhecendo a máscara: debito === 1; dinheiro === 2; PIX === 3; credito === 4;
 
+function aplicaDesconto(precoEtiqueta, desconto){
+    return precofinal = precoEtiqueta - (precoEtiqueta * (desconto /100))
+}
+
+function aplicaJuros(precoEtiqueta, juros){
+    return precofinal = precoEtiqueta + (precoEtiqueta * (juros /100))
+}
+
 function verificaValorPago(precoEtiqueta, modoDePagamento, parcelas){
     if(modoDePagamento === 1 && parcelas === 0){
-        precofinal = precoEtiqueta * 0.9;
+        aplicaDesconto(precoEtiqueta, 10);
         console.log('Total a pagar de: ' + precofinal + ' reais.');
     } 
     else if(modoDePagamento === 2 || modoDePagamento === 3 && parcelas === 0){
-        precofinal = precoEtiqueta * 0.85;
+        aplicaDesconto(precoEtiqueta, 15);
         console.log('Total a pagar de: ' + precofinal + ' reais.');
     }
     else if(modoDePagamento === 4 && parcelas <= 2){
-        precofinal = precoEtiqueta;
+        aplicaDesconto(precoEtiqueta, 0);
         console.log('Total a pagar de: ' + precofinal + ' reais.');
     }
     else if(modoDePagamento === 4 && parcelas > 2){
-        precofinal = precoEtiqueta * 1.1;
+        aplicaJuros(precoEtiqueta, 10);
         console.log('Total a pagar de: ' + precofinal.toFixed(1) + ' reais.');
     }
     else{
@@ -30,4 +38,4 @@ function verificaValorPago(precoEtiqueta, modoDePagamento, parcelas){
     }
 } 
 
-verificaValorPago(100, 1, 0);
+verificaValorPago(100, 3, 1);
